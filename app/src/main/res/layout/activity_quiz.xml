@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.QuizActivity">
+<ImageView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/ivBackgroundQuestion"
+    android:scaleType="centerCrop"
+    android:background="@color/black"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintTop_toTopOf="parent"/>
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvQuestion"
+        style="@style/myTextViewStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/common_padding_min"
+        android:layout_marginTop="@dimen/common_padding_max"
+        android:layout_marginEnd="@dimen/common_padding_min"
+        android:text="Guess the Company logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:text="0"
+        android:layout_margin="10dp"
+        app:layout_constraintBottom_toTopOf="@id/ivQuestion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvQuestion"/>
+
+    <ImageView
+        android:id="@+id/ivQuestion"
+        android:layout_width="240dp"
+        android:layout_height="120dp"
+        android:background="@drawable/background_imageview_question"
+        android:layout_marginTop="@dimen/common_padding_min"
+        app:layout_constraintBottom_toTopOf="@id/pbTimer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/score"
+        tools:ignore="ContentDescription"
+        android:src="@drawable/placeholder" />
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/pbTimer"
+        android:layout_width="86dp"
+        android:layout_height="86dp"
+        android:layout_marginTop="@dimen/common_padding_default"
+        android:indeterminate="false"
+        app:indicatorColor="@color/white"
+        app:indicatorSize="86dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivQuestion"
+        app:trackThickness="@dimen/common_padding_min"
+        tools:progress="20" />
+
+    <TextView
+        android:id="@+id/tvTimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/pbTimer"
+        app:layout_constraintEnd_toEndOf="@id/pbTimer"
+        app:layout_constraintStart_toStartOf="@id/pbTimer"
+        app:layout_constraintTop_toTopOf="@id/pbTimer"
+        tools:text="20" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pbTimer"
+        app:layout_constraintBottom_toTopOf="@+id/rvSuggestion"
+        />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSuggestion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:spanCount="2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rvResult"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
